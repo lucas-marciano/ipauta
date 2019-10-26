@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">iPauta</string>
+    <string name="hint_password">Senha</string>
+    <string name="hint_email">E-mail</string>
+    <string name="label_login">Entrar</string>
+    <string name="label_new_account"><u>Criar nova conta</u></string>
+    <string name="label_forgot_pass"><u>Recuperar senha</u></string>
+    <string name="label_stay_logged">Permanecer logado?</string>
 </resources>
