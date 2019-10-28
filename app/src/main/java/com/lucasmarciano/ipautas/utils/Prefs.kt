@@ -14,10 +14,15 @@ import android.content.SharedPreferences
 class Prefs(context: Context) {
     val PREFS_FILENAME = "com.lucasmarciano.ipautas.utils.prefs"
     val STAY_LOGGED_PREF_KEY = "status_stay_logged"
+    val USER_LOGGED_ID_PREF_KEY = "status_stay_logged"
 
     val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, 0)
 
     var stayLogged: Boolean
         get() = prefs.getBoolean(STAY_LOGGED_PREF_KEY, false)
         set(value) = prefs.edit().putBoolean(STAY_LOGGED_PREF_KEY, value).apply()
+
+    var idUser: Long
+        get() = prefs.getLong(USER_LOGGED_ID_PREF_KEY, 0)
+        set(value) = prefs.edit().putLong(USER_LOGGED_ID_PREF_KEY, value).apply()
 }

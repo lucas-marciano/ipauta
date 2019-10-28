@@ -29,7 +29,7 @@ class NewUserViewModel(private val dao: UserDao) : ViewModel() {
                 responseCreatedUser(id != null)
             }
         } catch (e: Exception) {
-            if (Logger.DEBUG) Log.d(TAG, "save error: ${e.message}")
+            if (Logger.DEBUG) Log.e(TAG, "save error: ${e.message}")
             responseCreatedUser(false)
         }
 

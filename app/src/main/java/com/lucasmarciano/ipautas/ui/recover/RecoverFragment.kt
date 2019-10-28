@@ -20,7 +20,6 @@ class RecoverFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         if (Logger.DEBUG) Log.d(TAG, "onCreateView")
-        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.recover_fragment, container, false)
     }
 

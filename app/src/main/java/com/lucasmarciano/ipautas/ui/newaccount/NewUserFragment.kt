@@ -11,8 +11,6 @@ import com.lucasmarciano.ipautas.data.models.User
 import com.lucasmarciano.ipautas.utils.Logger
 import kotlinx.android.synthetic.main.new_user_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import com.lucasmarciano.ipautas.ui.MainActivity
-import android.content.Intent
 
 class NewUserFragment : Fragment() {
     val TAG = Logger.tag
@@ -23,7 +21,7 @@ class NewUserFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         if (Logger.DEBUG) Log.d(TAG, "onCreateView")
-        setHasOptionsMenu(true)
+
         return inflater.inflate(R.layout.new_user_fragment, container, false)
     }
 
