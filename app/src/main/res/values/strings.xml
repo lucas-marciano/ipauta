@@ -7,4 +7,15 @@
     <string name="label_new_account"><u>Criar nova conta</u></string>
     <string name="label_forgot_pass"><u>Recuperar senha</u></string>
     <string name="label_stay_logged">Permanecer logado?</string>
+    <string name="hint_name">Nome</string>
+    <string name="hint_retry_password">Repetir a senha</string>
+    <string name="label_create_user">Criar novo usuário</string>
+
+    <string name="message_error_email_required">O campo E-mail é obrigatório</string>
+    <string name="message_error_pass_required">O campo Senha é obrigatório</string>
+    <string name="message_error_field_required">O campo é obrigatório</string>
+    <string name="message_error_pass_retry">As senhas não correspondem</string>
+    <string name="message_error_name_required">O campo Nome é obrigatório</string>
+    <string name="message_success_create_user">Usuário criado com sucesso</string>
+    <string name="message_error_create_user">Ocorreu um erro tente novamente</string>
 </resources>

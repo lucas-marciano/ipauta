@@ -22,7 +22,7 @@ val viewModelsModules = module {
     viewModel { ListViewModel() }
     viewModel { LoginViewModel() }
     viewModel { RecoverViewModel() }
-    viewModel { NewUserViewModel() }
+    viewModel { NewUserViewModel(get()) }
 }
 
 val databaseModules = module {

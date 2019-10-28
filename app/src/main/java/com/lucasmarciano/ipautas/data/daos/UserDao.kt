@@ -1,5 +1,6 @@
 package com.lucasmarciano.ipautas.data.daos
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -18,13 +19,10 @@ import com.lucasmarciano.ipautas.data.models.User
 interface UserDao {
 
     @Insert
-    fun save(user: User)
-
-    @Query("SELECT * FROM user WHERE id = :id")
-    fun getById(id: Int): User
+    fun save(user: User): Long?
 
     @Query("SELECT * FROM user WHERE email = :email AND password = :pass")
-    fun logIn(email: String, pass: String): User
+    fun logIn(email: String, pass: String): LiveData<User>
 
     @Delete
     fun delete(user: User)

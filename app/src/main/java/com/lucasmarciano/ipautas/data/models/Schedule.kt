@@ -1,9 +1,7 @@
 package com.lucasmarciano.ipautas.data.models
 
-import androidx.room.Entity
-import androidx.room.ForeignKey
+import androidx.room.*
 import androidx.room.ForeignKey.CASCADE
-import androidx.room.PrimaryKey
 
 /**
  * Schedule data entity
@@ -15,6 +13,7 @@ import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "schedule",
+    indices = [Index(value = arrayOf("author"))],
     foreignKeys = [ForeignKey(
         entity = User::class,
         parentColumns = arrayOf("id"),
@@ -24,8 +23,11 @@ import androidx.room.PrimaryKey
 )
 data class Schedule(
     @PrimaryKey(autoGenerate = true)
-    var id: Int,
+    var id: Long = 0,
+    @ColumnInfo(name = "title")
     var title: String,
+    @ColumnInfo(name = "description")
     var description: String,
-    var author: Int
+    @ColumnInfo(name = "author")
+    var author: Long
 )

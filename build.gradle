@@ -10,6 +10,7 @@ buildscript {
         navigation_version = '2.1.0'
         koin_version = '2.0.1'
         room_version = '2.2.1'
+        roomkapt_version = '1.1.1'
     }
 
     repositories {
