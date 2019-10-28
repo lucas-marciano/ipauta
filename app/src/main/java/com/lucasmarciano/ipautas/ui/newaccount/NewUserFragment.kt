@@ -2,9 +2,7 @@ package com.lucasmarciano.ipautas.ui.newaccount
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -13,6 +11,8 @@ import com.lucasmarciano.ipautas.data.models.User
 import com.lucasmarciano.ipautas.utils.Logger
 import kotlinx.android.synthetic.main.new_user_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import com.lucasmarciano.ipautas.ui.MainActivity
+import android.content.Intent
 
 class NewUserFragment : Fragment() {
     val TAG = Logger.tag
@@ -23,6 +23,7 @@ class NewUserFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         if (Logger.DEBUG) Log.d(TAG, "onCreateView")
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.new_user_fragment, container, false)
     }
 
@@ -30,7 +31,7 @@ class NewUserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (Logger.DEBUG) Log.d(TAG, "onViewCreated")
 
-        toolbar.title = resources.getString(R.string.label_create_user)
+        setupToolbar()
 
         bt_create_user.setOnClickListener {
             if (checkPoliciesFields()) {
@@ -43,6 +44,17 @@ class NewUserFragment : Fragment() {
                 )
 
             }
+        }
+    }
+
+    /**
+     * Method that configure a back button.
+     */
+    private fun setupToolbar() {
+        toolbar.setNavigationIcon(R.drawable.ic_back)
+
+        toolbar.setNavigationOnClickListener {
+            it.findNavController().navigate(R.id.action_newUserFragment_to_loginFragment)
         }
     }
 
