@@ -1,6 +1,7 @@
 package com.lucasmarciano.ipautas.data.models
 
 import androidx.room.*
+import com.lucasmarciano.ipautas.utils.ext.dateFormat
 import java.util.*
 
 /**
@@ -28,5 +29,5 @@ data class User(
     @ColumnInfo(name = "password")
     var password: String,
     @ColumnInfo(name = "created_at")
-    var createdAt: Date = Date()
+    var createdAt: String = Date().dateFormat()
 )

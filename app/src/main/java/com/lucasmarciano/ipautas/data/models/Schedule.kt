@@ -2,6 +2,7 @@ package com.lucasmarciano.ipautas.data.models
 
 import androidx.room.*
 import androidx.room.ForeignKey.CASCADE
+import com.lucasmarciano.ipautas.utils.ext.dateFormat
 import java.util.*
 
 /**
@@ -36,5 +37,5 @@ data class Schedule(
     @ColumnInfo(name = "author")
     var author: Long,
     @ColumnInfo(name = "created_at")
-    var createdAt: Date = Date()
+    var createdAt: String = Date().dateFormat()
 )

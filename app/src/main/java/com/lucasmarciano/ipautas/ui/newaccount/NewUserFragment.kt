@@ -35,9 +35,9 @@ class NewUserFragment : Fragment() {
             if (checkPoliciesFields()) {
                 viewModel.save(
                     User(
-                        name = et_title.text.toString(),
-                        email = et_mini_description.text.toString(),
-                        password = et_description.text.toString()
+                        name = et_name.text.toString(),
+                        email = et_email.text.toString(),
+                        password = et_password.text.toString()
                     ), ::responseCreatedUser
                 )
 
@@ -93,25 +93,25 @@ class NewUserFragment : Fragment() {
         var checkPassword = true
         var checkRetryPassword = true
 
-        if (et_title.text?.isEmpty()!!) {
+        if (et_name.text?.isEmpty()!!) {
             checkName = false
-            ti_title.error = resources.getString(R.string.message_error_name_required)
+            ti_name.error = resources.getString(R.string.message_error_field_required)
         } else {
-            ti_title.isErrorEnabled = false
+            ti_name.isErrorEnabled = false
         }
 
-        if (et_mini_description.text?.isEmpty()!!) {
+        if (et_email.text?.isEmpty()!!) {
             checkEmail = false
-            ti_mini_description.error = resources.getString(R.string.message_error_email_required)
+            ti_email.error = resources.getString(R.string.message_error_field_required)
         } else {
-            ti_mini_description.isErrorEnabled = false
+            ti_email.isErrorEnabled = false
         }
 
-        if (et_description.text?.isEmpty()!!) {
+        if (et_password.text?.isEmpty()!!) {
             checkPassword = false
-            ti_description.error = resources.getString(R.string.message_error_pass_required)
+            ti_password.error = resources.getString(R.string.message_error_field_required)
         } else {
-            ti_description.isErrorEnabled = false
+            ti_password.isErrorEnabled = false
         }
 
         if (et_retry_password.text?.isEmpty()!!) {
@@ -121,7 +121,7 @@ class NewUserFragment : Fragment() {
             ti_retry_password.isErrorEnabled = false
         }
 
-        if (et_retry_password.text.toString() != et_description.text.toString()) {
+        if (et_retry_password.text.toString() != et_password.text.toString()) {
             checkRetryPassword = false
             ti_retry_password.error = resources.getString(R.string.message_error_pass_retry)
         } else {

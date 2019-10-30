@@ -20,7 +20,7 @@
         app:titleTextColor="@android:color/white" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_mini_description"
+        android:id="@+id/ti_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -33,7 +33,7 @@
         app:passwordToggleTint="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_mini_description"
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_email"

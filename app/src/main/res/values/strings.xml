@@ -15,7 +15,7 @@
     <string name="label_schedule_active">Abertas</string>
     <string name="label_schedule_inactive">Fechadas</string>
     <string name="label_logout">Sair</string>
-    <string name="label_create_schedule">Salvar pauta</string>
+    <string name="label_create_schedule">Finalizar</string>
     <string name="label_author">Autor:</string>
 
     <string name="hint_password">Senha</string>
@@ -30,7 +30,6 @@
     <string name="message_error_pass_required">O campo Senha é obrigatório</string>
     <string name="message_error_field_required">O campo é obrigatório</string>
     <string name="message_error_pass_retry">As senhas não correspondem</string>
-    <string name="message_error_name_required">O campo Nome é obrigatório</string>
     <string name="message_success_create_user">Usuário criado com sucesso</string>
     <string name="message_error_create">Ocorreu um erro tente novamente</string>
     <string name="message_success_recover_pass">Um email vai ser enviado com as instrucões</string>

@@ -61,11 +61,11 @@ class RecoverFragment : Fragment() {
     private fun checkPoliciesFields(): Boolean {
         if (Logger.DEBUG) Log.d(TAG, "checkPoliciesFields")
 
-        return if (et_mini_description.text?.isEmpty()!!) {
-            ti_mini_description.error = resources.getString(R.string.message_error_email_required)
+        return if (et_email.text?.isEmpty()!!) {
+            ti_email.error = resources.getString(R.string.message_error_email_required)
             false
         } else {
-            ti_mini_description.isErrorEnabled = false
+            ti_email.isErrorEnabled = false
             true
         }
     }

@@ -40,8 +40,8 @@ class LoginFragment : Fragment() {
             bt_login.setOnClickListener {
                 if (checkPoliciesFields()) {
                     viewModel.logIn(
-                        et_mini_description.text.toString(),
-                        et_description.text.toString(),
+                        et_email.text.toString(),
+                        et_password.text.toString(),
                         ::responseLogin
                     )
                 }
@@ -103,14 +103,14 @@ class LoginFragment : Fragment() {
         var checkEmail = true
         var checkPassword = true
 
-        if (et_mini_description.text?.isEmpty()!!) {
+        if (et_email.text?.isEmpty()!!) {
             checkEmail = false
-            ti_mini_description.error = resources.getString(R.string.message_error_email_required)
+            ti_email.error = resources.getString(R.string.message_error_email_required)
         }
 
-        if (et_description.text?.isEmpty()!!) {
+        if (et_password.text?.isEmpty()!!) {
             checkPassword = false
-            ti_description.error = resources.getString(R.string.message_error_pass_required)
+            ti_password.error = resources.getString(R.string.message_error_pass_required)
         }
 
         return checkEmail && checkPassword

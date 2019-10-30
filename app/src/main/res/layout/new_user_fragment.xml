@@ -20,7 +20,7 @@
         app:titleTextColor="@android:color/white" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_title"
+        android:id="@+id/ti_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -29,20 +29,19 @@
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:passwordToggleTint="@color/colorAccent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_title"
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_name"
-            android:textColor="@color/colorAccent" />
+            android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_mini_description"
+        android:id="@+id/ti_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -51,20 +50,18 @@
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ti_title"
-        app:passwordToggleTint="@color/colorAccent">
+        app:layout_constraintTop_toBottomOf="@+id/ti_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_mini_description"
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_email"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/colorAccent" />
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_description"
+        android:id="@+id/ti_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -73,17 +70,15 @@
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ti_mini_description"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/colorAccent">
+        app:layout_constraintTop_toBottomOf="@+id/ti_email"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_description"
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_password"
-            android:inputType="textPassword"
-            android:textColor="@color/colorAccent" />
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -96,16 +91,14 @@
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ti_description"
-        app:passwordToggleTint="@color/colorAccent">
+        app:layout_constraintTop_toBottomOf="@+id/ti_password">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_retry_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_retry_password"
-            android:inputType="textPassword"
-            android:textColor="@color/colorAccent" />
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -115,7 +108,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:text="@string/label_create_user"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"

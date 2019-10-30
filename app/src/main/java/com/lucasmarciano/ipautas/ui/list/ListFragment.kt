@@ -41,10 +41,10 @@ class ListFragment : Fragment() {
         loadData()
 
         bnv_lists.setOnNavigationItemSelectedListener { item ->
-            progressBar.visibility = View.VISIBLE
-            recyclerView.visibility = View.GONE
-            tv_message.visibility = View.GONE
-            fab_add.hide()
+            progressBar?.visibility = View.VISIBLE
+            recyclerView?.visibility = View.GONE
+            tv_message?.visibility = View.GONE
+            fab_add?.hide()
 
             when (item.itemId) {
                 R.id.navigation_list_active -> loadData()
@@ -67,15 +67,15 @@ class ListFragment : Fragment() {
 
         activity?.let {
             viewModel.listOfSchedule?.observe(it, Observer<MutableList<Schedule>> { schedules ->
-                progressBar.visibility = View.GONE
-                fab_add.show()
+                progressBar?.visibility = View.GONE
+                fab_add?.show()
 
                 if (schedules.size > 0) {
                     adapter.schedules = schedules
-                    tv_message.visibility = View.GONE
-                    recyclerView.visibility = View.VISIBLE
+                    tv_message?.visibility = View.GONE
+                    recyclerView?.visibility = View.VISIBLE
                 } else {
-                    tv_message.visibility = View.VISIBLE
+                    tv_message?.visibility = View.VISIBLE
                 }
             })
         }
@@ -85,8 +85,8 @@ class ListFragment : Fragment() {
         if (Logger.DEBUG) Log.d(TAG, "setupRecyclerView")
 
         val llm = LinearLayoutManager(context)
-        recyclerView.layoutManager = llm
-        recyclerView.adapter = adapter
+        recyclerView?.layoutManager = llm
+        recyclerView?.adapter = adapter
     }
 
 }

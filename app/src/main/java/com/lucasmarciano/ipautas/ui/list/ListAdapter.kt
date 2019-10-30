@@ -9,7 +9,6 @@ import com.lucasmarciano.ipautas.R
 import com.lucasmarciano.ipautas.data.models.Schedule
 import com.lucasmarciano.ipautas.injection.prefs
 import com.lucasmarciano.ipautas.utils.Logger
-import com.lucasmarciano.ipautas.utils.ext.dateFormat
 import kotlinx.android.synthetic.main.item_list.view.*
 
 /**
@@ -42,10 +41,11 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
         fun bind(schedule: Schedule) {
             if (Logger.DEBUG) Log.d(TAG, "bind")
+
             itemView.tv_title.text = schedule.title
             itemView.tv_description.text = schedule.miniDescription
             itemView.tv_author.text = prefs.userName
-            itemView.tv_created_at.text = schedule.createdAt.toString().dateFormat()
+            itemView.tv_created_at.text = schedule.createdAt.toString()
 
             itemView.setOnClickListener {
                 //TODO: Open the detail screen
