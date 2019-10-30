@@ -1,7 +1,6 @@
 package com.lucasmarciano.ipautas.ui.login
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.lucasmarciano.ipautas.data.daos.UserDao
 import com.lucasmarciano.ipautas.data.models.User

@@ -31,7 +31,7 @@ open class MyApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MyApplication)
-            modules(listOf(viewModelsModules, databaseModules))
+            modules(listOf(viewModelsModules, databaseModules, uiModule))
         }
     }
 }

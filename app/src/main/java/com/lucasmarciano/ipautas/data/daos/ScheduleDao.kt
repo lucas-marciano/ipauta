@@ -1,10 +1,7 @@
 package com.lucasmarciano.ipautas.data.daos
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.lucasmarciano.ipautas.data.models.Schedule
 
 /**
@@ -18,10 +15,16 @@ import com.lucasmarciano.ipautas.data.models.Schedule
 @Dao
 interface ScheduleDao {
     @Insert
-    fun save(user: Schedule): Long
+    fun save(user: Schedule): Long?
 
-    @Query("SELECT * FROM schedule WHERE author = :id")
-    fun getScheduleByAuthor(id: Long): LiveData<MutableList<Schedule>>
+    @Query("SELECT * FROM schedule WHERE author = :id AND is_active = :isActive")
+    fun getScheduleByAuthor(
+        id: Long,
+        isActive: Boolean = true
+    ): LiveData<MutableList<Schedule>>?
+
+    @Update
+    fun update(vararg schedule: Schedule)
 
     @Delete
     fun delete(user: Schedule)

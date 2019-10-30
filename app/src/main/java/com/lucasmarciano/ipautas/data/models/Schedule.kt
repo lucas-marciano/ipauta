@@ -2,6 +2,7 @@ package com.lucasmarciano.ipautas.data.models
 
 import androidx.room.*
 import androidx.room.ForeignKey.CASCADE
+import java.util.*
 
 /**
  * Schedule data entity
@@ -26,8 +27,14 @@ data class Schedule(
     var id: Long = 0,
     @ColumnInfo(name = "title")
     var title: String,
+    @ColumnInfo(name = "mini_description")
+    var miniDescription: String,
     @ColumnInfo(name = "description")
     var description: String,
+    @ColumnInfo(name = "is_active")
+    var isActive: Boolean = true,
     @ColumnInfo(name = "author")
-    var author: Long
+    var author: Long,
+    @ColumnInfo(name = "created_at")
+    var createdAt: Date = Date()
 )

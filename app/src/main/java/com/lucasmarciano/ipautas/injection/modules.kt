@@ -3,6 +3,7 @@ package com.lucasmarciano.ipautas.injection
 import androidx.room.Room
 import com.lucasmarciano.ipautas.data.AppDatabase
 import com.lucasmarciano.ipautas.ui.detail.DetailViewModel
+import com.lucasmarciano.ipautas.ui.list.ListAdapter
 import com.lucasmarciano.ipautas.ui.list.ListViewModel
 import com.lucasmarciano.ipautas.ui.login.LoginViewModel
 import com.lucasmarciano.ipautas.ui.newaccount.NewUserViewModel
@@ -19,10 +20,14 @@ import org.koin.dsl.module
  */
 val viewModelsModules = module {
     viewModel { DetailViewModel() }
-    viewModel { ListViewModel() }
+    viewModel { ListViewModel(get()) }
     viewModel { LoginViewModel(get()) }
     viewModel { RecoverViewModel() }
     viewModel { NewUserViewModel(get()) }
+}
+
+val uiModule = module {
+    factory { ListAdapter() }
 }
 
 val databaseModules = module {

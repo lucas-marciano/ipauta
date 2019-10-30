@@ -1,9 +1,7 @@
 package com.lucasmarciano.ipautas.data.models
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.Index
-import androidx.room.PrimaryKey
+import androidx.room.*
+import java.util.*
 
 /**
  * User data entity
@@ -28,5 +26,7 @@ data class User(
     @ColumnInfo(name = "email")
     var email: String,
     @ColumnInfo(name = "password")
-    var password: String
+    var password: String,
+    @ColumnInfo(name = "created_at")
+    var createdAt: Date = Date()
 )

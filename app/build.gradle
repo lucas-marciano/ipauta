@@ -31,6 +31,9 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
@@ -42,12 +45,10 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
-    // Lifecycle components
-
     testImplementation "junit:junit:4.12"
+    testImplementation "org.koin:koin-test:$koin_version"
     androidTestImplementation "androidx.test.ext:junit:1.1.1"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
-    androidTestImplementation "org.koin:koin-test:$koin_version"
     androidTestImplementation "androidx.room:room-testing:$room_version"
 
 }

@@ -58,6 +58,9 @@
             app:exitAnim="@anim/nav_default_enter_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_listFragment_to_newScheduleFragment"
+            app:destination="@id/newScheduleFragment" />
     </fragment>
 
     <fragment
@@ -86,6 +89,15 @@
             app:exitAnim="@anim/nav_default_enter_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/newScheduleFragment"
+        android:name="com.lucasmarciano.ipautas.ui.newschedule.NewScheduleFragment"
+        android:label="new_schedule_fragment"
+        tools:layout="@layout/new_schedule_fragment" >
+        <action
+            android:id="@+id/action_newScheduleFragment_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
 
 </navigation>

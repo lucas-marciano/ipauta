@@ -71,7 +71,10 @@ class LoginFragment : Fragment() {
             stayLoggedConfigurations(user)
             view?.findNavController()?.navigate(R.id.action_loginFragment_to_listFragment)
         } else {
-            if (Logger.DEBUG) Log.e(TAG, "responseLogin: error")
+            Toast.makeText(
+                context, getString(R.string.message_error_user_not_found),
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
@@ -83,12 +86,12 @@ class LoginFragment : Fragment() {
     private fun stayLoggedConfigurations(user: User) {
         if (Logger.DEBUG) Log.d(TAG, "stayLoggedConfigurations")
 
-        cb_stay_logged.setOnCheckedChangeListener { _, changed ->
-            prefs.stayLogged = changed
-        }
+        prefs.stayLogged = cb_stay_logged.isChecked
 
-        if (prefs.stayLogged)
+        if (prefs.stayLogged) {
             prefs.idUser = user.id
+            prefs.userName = user.name
+        }
     }
 
     /**

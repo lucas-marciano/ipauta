@@ -23,7 +23,7 @@ interface UserDao {
     fun save(user: User): Long?
 
     @Query("SELECT * FROM user WHERE email = :email AND password = :pass")
-    fun logIn(email: String, pass: String): User
+    fun logIn(email: String, pass: String): User?
 
     @Delete
     fun delete(user: User)
