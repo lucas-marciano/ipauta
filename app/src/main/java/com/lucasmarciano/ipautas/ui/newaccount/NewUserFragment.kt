@@ -35,9 +35,9 @@ class NewUserFragment : Fragment() {
             if (checkPoliciesFields()) {
                 viewModel.save(
                     User(
-                        name = et_name.text.toString(),
-                        email = et_email.text.toString(),
-                        password = et_password.text.toString()
+                        name = et_title.text.toString(),
+                        email = et_mini_description.text.toString(),
+                        password = et_description.text.toString()
                     ), ::responseCreatedUser
                 )
 
@@ -49,6 +49,8 @@ class NewUserFragment : Fragment() {
      * Method that configure a back button.
      */
     private fun setupToolbar() {
+        if (Logger.DEBUG) Log.d(TAG, "setupToolbar")
+
         toolbar.setNavigationIcon(R.drawable.ic_back)
 
         toolbar.setNavigationOnClickListener {
@@ -62,6 +64,8 @@ class NewUserFragment : Fragment() {
      * @param response Boolean
      */
     private fun responseCreatedUser(response: Boolean) {
+        if (Logger.DEBUG) Log.d(TAG, "responseCreatedUser")
+
         if (response) {
             view?.findNavController()?.navigate(R.id.action_newUserFragment_to_loginFragment)
             Toast.makeText(
@@ -72,7 +76,7 @@ class NewUserFragment : Fragment() {
         } else {
             Toast.makeText(
                 context,
-                getString(R.string.message_error_create_user),
+                getString(R.string.message_error_create),
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -80,8 +84,6 @@ class NewUserFragment : Fragment() {
 
     /**
      * Method to check if the all fields are correctly filed.
-     *
-     * @return Boolean
      */
     private fun checkPoliciesFields(): Boolean {
         if (Logger.DEBUG) Log.d(TAG, "checkPoliciesFields")
@@ -91,25 +93,25 @@ class NewUserFragment : Fragment() {
         var checkPassword = true
         var checkRetryPassword = true
 
-        if (et_name.text?.isEmpty()!!) {
+        if (et_title.text?.isEmpty()!!) {
             checkName = false
-            ti_name.error = resources.getString(R.string.message_error_name_required)
+            ti_title.error = resources.getString(R.string.message_error_name_required)
         } else {
-            ti_name.isErrorEnabled = false
+            ti_title.isErrorEnabled = false
         }
 
-        if (et_email.text?.isEmpty()!!) {
+        if (et_mini_description.text?.isEmpty()!!) {
             checkEmail = false
-            ti_email.error = resources.getString(R.string.message_error_email_required)
+            ti_mini_description.error = resources.getString(R.string.message_error_email_required)
         } else {
-            ti_email.isErrorEnabled = false
+            ti_mini_description.isErrorEnabled = false
         }
 
-        if (et_password.text?.isEmpty()!!) {
+        if (et_description.text?.isEmpty()!!) {
             checkPassword = false
-            ti_password.error = resources.getString(R.string.message_error_pass_required)
+            ti_description.error = resources.getString(R.string.message_error_pass_required)
         } else {
-            ti_password.isErrorEnabled = false
+            ti_description.isErrorEnabled = false
         }
 
         if (et_retry_password.text?.isEmpty()!!) {
@@ -119,7 +121,7 @@ class NewUserFragment : Fragment() {
             ti_retry_password.isErrorEnabled = false
         }
 
-        if (et_retry_password.text.toString() != et_password.text.toString()) {
+        if (et_retry_password.text.toString() != et_description.text.toString()) {
             checkRetryPassword = false
             ti_retry_password.error = resources.getString(R.string.message_error_pass_retry)
         } else {

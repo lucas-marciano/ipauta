@@ -7,6 +7,7 @@ import com.lucasmarciano.ipautas.ui.list.ListAdapter
 import com.lucasmarciano.ipautas.ui.list.ListViewModel
 import com.lucasmarciano.ipautas.ui.login.LoginViewModel
 import com.lucasmarciano.ipautas.ui.newaccount.NewUserViewModel
+import com.lucasmarciano.ipautas.ui.newschedule.NewScheduleViewModel
 import com.lucasmarciano.ipautas.ui.recover.RecoverViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -24,6 +25,7 @@ val viewModelsModules = module {
     viewModel { LoginViewModel(get()) }
     viewModel { RecoverViewModel() }
     viewModel { NewUserViewModel(get()) }
+    viewModel { NewScheduleViewModel(get()) }
 }
 
 val uiModule = module {

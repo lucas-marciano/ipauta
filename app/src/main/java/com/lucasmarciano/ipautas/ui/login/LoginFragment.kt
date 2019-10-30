@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.lucasmarciano.ipautas.R
 import com.lucasmarciano.ipautas.data.models.User
@@ -42,8 +40,8 @@ class LoginFragment : Fragment() {
             bt_login.setOnClickListener {
                 if (checkPoliciesFields()) {
                     viewModel.logIn(
-                        et_email.text.toString(),
-                        et_password.text.toString(),
+                        et_mini_description.text.toString(),
+                        et_description.text.toString(),
                         ::responseLogin
                     )
                 }
@@ -105,14 +103,14 @@ class LoginFragment : Fragment() {
         var checkEmail = true
         var checkPassword = true
 
-        if (et_email.text?.isEmpty()!!) {
+        if (et_mini_description.text?.isEmpty()!!) {
             checkEmail = false
-            ti_email.error = resources.getString(R.string.message_error_email_required)
+            ti_mini_description.error = resources.getString(R.string.message_error_email_required)
         }
 
-        if (et_password.text?.isEmpty()!!) {
+        if (et_description.text?.isEmpty()!!) {
             checkPassword = false
-            ti_password.error = resources.getString(R.string.message_error_pass_required)
+            ti_description.error = resources.getString(R.string.message_error_pass_required)
         }
 
         return checkEmail && checkPassword

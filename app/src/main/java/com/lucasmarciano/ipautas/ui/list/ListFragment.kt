@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasmarciano.ipautas.R
 import com.lucasmarciano.ipautas.data.models.Schedule
@@ -52,6 +53,10 @@ class ListFragment : Fragment() {
             }
 
             true
+        }
+
+        fab_add.setOnClickListener {
+            it.findNavController().navigate(R.id.action_listFragment_to_newScheduleFragment)
         }
     }
 
