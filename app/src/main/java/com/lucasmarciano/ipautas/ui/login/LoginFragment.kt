@@ -89,6 +89,7 @@ class LoginFragment : Fragment() {
         if (prefs.stayLogged) {
             prefs.idUser = user.id
             prefs.userName = user.name
+            prefs.userEmail = user.email
         }
     }
 

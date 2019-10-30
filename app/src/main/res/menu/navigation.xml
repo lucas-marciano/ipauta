@@ -11,4 +11,9 @@
         android:icon="@drawable/ic_inactive"
         android:title="@string/label_schedule_inactive" />
 
+    <item
+        android:id="@+id/navigation_perfil"
+        android:icon="@drawable/ic_perfil"
+        android:title="@string/label_perfil" />
+
 </menu>

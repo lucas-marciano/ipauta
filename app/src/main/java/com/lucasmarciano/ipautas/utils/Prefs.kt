@@ -16,6 +16,7 @@ class Prefs(context: Context) {
     val STAY_LOGGED_PREF_KEY = "STAY_LOGGED_PREF_KEY"
     val USER_LOGGED_ID_PREF_KEY = "USER_LOGGED_ID_PREF_KEY"
     val USER_NAME_PREF_KEY = "USER_NAME_PREF_KEY"
+    val USER_EMAIL_PREF_KEY = "USER_EMAIL_PREF_KEY"
 
     val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, 0)
 
@@ -31,10 +32,15 @@ class Prefs(context: Context) {
         get() = prefs.getString(USER_NAME_PREF_KEY, "")
         set(value) = prefs.edit().putString(USER_NAME_PREF_KEY, value).apply()
 
+    var userEmail: String?
+        get() = prefs.getString(USER_EMAIL_PREF_KEY, "")
+        set(value) = prefs.edit().putString(USER_EMAIL_PREF_KEY, value).apply()
+
 
     fun clearPrefs() {
         stayLogged = false
         idUser = -1
         userName = ""
+        userEmail = ""
     }
 }

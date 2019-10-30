@@ -55,7 +55,7 @@ class DetailFragment : Fragment() {
     }
 
     /**
-     * Methodo that get data in data base.
+     * Method that get data in data base.
      */
     private fun loadData(scheduleId: Long) {
         viewModel.getSchedule(scheduleId)

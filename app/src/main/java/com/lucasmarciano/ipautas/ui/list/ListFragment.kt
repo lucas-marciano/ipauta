@@ -2,9 +2,7 @@ package com.lucasmarciano.ipautas.ui.list
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -16,7 +14,9 @@ import com.lucasmarciano.ipautas.utils.Logger
 import kotlinx.android.synthetic.main.list_fragment.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
-
+import android.view.MenuInflater
+import android.widget.Toast
+import kotlinx.android.synthetic.main.perfil_fragment.*
 
 class ListFragment : Fragment() {
     val TAG = Logger.tag
@@ -30,6 +30,7 @@ class ListFragment : Fragment() {
     ): View? {
         if (Logger.DEBUG) Log.d(TAG, "onCreateView")
 
+        setHasOptionsMenu(true)
         return inflater.inflate(R.layout.list_fragment, container, false)
     }
 
@@ -40,6 +41,12 @@ class ListFragment : Fragment() {
         setupRecyclerView()
         loadData()
 
+        bt_logout.setOnClickListener {
+            prefs.clearPrefs()
+            it.findNavController().navigate(R.id.action_listFragment_to_loginFragment)
+            Toast.makeText(context, getString(R.string.message_logout), Toast.LENGTH_LONG).show()
+        }
+
         bnv_lists.setOnNavigationItemSelectedListener { item ->
             progressBar?.visibility = View.VISIBLE
             recyclerView?.visibility = View.GONE
@@ -49,6 +56,7 @@ class ListFragment : Fragment() {
             when (item.itemId) {
                 R.id.navigation_list_active -> loadData()
                 R.id.navigation_list_inactive -> loadData(false)
+                R.id.navigation_perfil -> showPerfil()
                 else -> loadData()
             }
 
@@ -60,8 +68,28 @@ class ListFragment : Fragment() {
         }
     }
 
+    /**
+     * Method to show a perfil screen
+     */
+    private fun showPerfil() {
+        progressBar?.visibility = View.GONE
+        recyclerView?.visibility = View.GONE
+        tv_message?.visibility = View.GONE
+        fab_add?.hide()
+
+        ic_perfil.visibility = View.VISIBLE
+        tv_name_user.text = prefs.userName
+        tv_email_user.text = prefs.userEmail
+    }
+
+    /**
+     * Method that get data in data base.
+     *
+     * @param isActive Boolean
+     */
     private fun loadData(isActive: Boolean = true) {
         if (Logger.DEBUG) Log.d(TAG, "loadDataByActive")
+        ic_perfil.visibility = View.GONE
 
         viewModel.getListSchedules(prefs.idUser, isActive)
 
