@@ -4,6 +4,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.lucasmarciano.ipautas.R
 import com.lucasmarciano.ipautas.data.models.Schedule
@@ -45,10 +47,12 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
             itemView.tv_title.text = schedule.title
             itemView.tv_description.text = schedule.miniDescription
             itemView.tv_author.text = prefs.userName
-            itemView.tv_created_at.text = schedule.createdAt.toString()
+            itemView.tv_created_at.text = schedule.createdAt
 
             itemView.setOnClickListener {
-                //TODO: Open the detail screen
+                val bundle = bundleOf("scheduleId" to schedule.id)
+                itemView.findNavController()
+                    .navigate(R.id.action_listFragment_to_detailFragment, bundle)
             }
         }
     }

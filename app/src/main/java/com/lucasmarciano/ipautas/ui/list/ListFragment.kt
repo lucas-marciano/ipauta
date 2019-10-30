@@ -72,6 +72,7 @@ class ListFragment : Fragment() {
 
                 if (schedules.size > 0) {
                     adapter.schedules = schedules
+                    adapter.notifyDataSetChanged()
                     tv_message?.visibility = View.GONE
                     recyclerView?.visibility = View.VISIBLE
                 } else {

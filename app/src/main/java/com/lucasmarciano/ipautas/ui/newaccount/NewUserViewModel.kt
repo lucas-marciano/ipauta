@@ -21,6 +21,7 @@ class NewUserViewModel(private val dao: UserDao) : ViewModel() {
      */
     fun save(user: User, responseCreatedUser: (resp: Boolean) -> Unit) {
         if (Logger.DEBUG) Log.d(TAG, "save")
+
         try {
             GlobalScope.launch(Dispatchers.Main) {
                 val id = withContext(Dispatchers.Default) {

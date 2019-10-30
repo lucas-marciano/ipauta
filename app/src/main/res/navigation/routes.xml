@@ -37,7 +37,15 @@
         android:id="@+id/detailFragment"
         android:name="com.lucasmarciano.ipautas.ui.detail.DetailFragment"
         android:label="detail_fragment"
-        tools:layout="@layout/detail_fragment" />
+        tools:layout="@layout/detail_fragment">
+        <argument
+            android:name="scheduleId"
+            android:defaultValue="0L"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_detailFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/listFragment"
@@ -94,7 +102,7 @@
         android:id="@+id/newScheduleFragment"
         android:name="com.lucasmarciano.ipautas.ui.newschedule.NewScheduleFragment"
         android:label="new_schedule_fragment"
-        tools:layout="@layout/new_schedule_fragment" >
+        tools:layout="@layout/new_schedule_fragment">
         <action
             android:id="@+id/action_newScheduleFragment_to_listFragment"
             app:destination="@id/listFragment" />

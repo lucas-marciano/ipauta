@@ -17,6 +17,9 @@ interface ScheduleDao {
     @Insert
     fun save(user: Schedule): Long?
 
+    @Query("SELECT * FROM schedule WHERE id = :id")
+    fun getById(id: Long): LiveData<Schedule>?
+
     @Query("SELECT * FROM schedule WHERE author = :id AND is_active = :isActive")
     fun getScheduleByAuthor(
         id: Long,
@@ -24,7 +27,7 @@ interface ScheduleDao {
     ): LiveData<MutableList<Schedule>>?
 
     @Update
-    fun update(vararg schedule: Schedule)
+    fun update(vararg schedule: Schedule): Int
 
     @Delete
     fun delete(user: Schedule)

@@ -17,6 +17,8 @@
     <string name="label_logout">Sair</string>
     <string name="label_create_schedule">Finalizar</string>
     <string name="label_author">Autor:</string>
+    <string name="label_close">Fechar</string>
+    <string name="label_reopen">Reabrir</string>
 
     <string name="hint_password">Senha</string>
     <string name="hint_email">E-mail</string>
@@ -37,5 +39,6 @@
     <string name="message_no_schedules_saved">Não encontramos nenhum item</string>
     <string name="message_new_schedules">Cadastre suas novas pautas no botão +.</string>
     <string name="message_success_create_schedule">Nova pauta cadastrada com sucesso</string>
+    <string name="message_success_update_schedule">A pauta foi atualizada com sucesso</string>
 
 </resources>
