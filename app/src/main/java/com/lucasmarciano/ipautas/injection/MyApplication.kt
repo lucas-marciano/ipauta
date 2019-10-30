@@ -18,7 +18,7 @@ val prefs: Prefs by lazy {
     MyApplication.prefs!!
 }
 
-open class MyApplication: Application() {
+open class MyApplication : Application() {
 
     companion object {
         var prefs: Prefs? = null
@@ -28,10 +28,10 @@ open class MyApplication: Application() {
         super.onCreate()
         prefs = Prefs(applicationContext)
 
-        startKoin{
+        startKoin {
             androidLogger()
             androidContext(this@MyApplication)
-            modules(appModule)
+            modules(listOf(viewModelsModules, databaseModules, uiModule))
         }
     }
 }

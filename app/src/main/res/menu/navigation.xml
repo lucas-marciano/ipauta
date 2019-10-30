@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_list_active"
+        android:icon="@drawable/ic_active"
+        android:title="@string/label_schedule_active" />
+
+    <item
+        android:id="@+id/navigation_list_inactive"
+        android:icon="@drawable/ic_inactive"
+        android:title="@string/label_schedule_inactive" />
+
+    <item
+        android:id="@+id/navigation_perfil"
+        android:icon="@drawable/ic_perfil"
+        android:title="@string/label_perfil" />
+
+</menu>

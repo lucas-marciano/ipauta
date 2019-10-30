@@ -1,4 +1,4 @@
-package com.lucasmarciano.ipautas.ui.login
+package com.lucasmarciano.ipautas.ui.newaccount
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -10,26 +10,28 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class LoginViewModel(private val dao: UserDao) : ViewModel() {
+class NewUserViewModel(private val dao: UserDao) : ViewModel() {
     val TAG = Logger.tag
 
-    fun logIn(
-        email: String,
-        pass: String,
-        methodResponse: (response: User?) -> Unit
-    ) {
-        if (Logger.DEBUG) Log.d(TAG, "logIn")
+    /**
+     * Method that save a new user, and send the response in the high order function.
+     *
+     * @param user User
+     * @param responseCreatedUser Unit
+     */
+    fun save(user: User, responseCreatedUser: (resp: Boolean) -> Unit) {
+        if (Logger.DEBUG) Log.d(TAG, "save")
 
         try {
             GlobalScope.launch(Dispatchers.Main) {
-                val currentUser = withContext(Dispatchers.Default) {
-                    dao.logIn(email, pass)
+                val id = withContext(Dispatchers.Default) {
+                    dao.save(user)
                 }
-                methodResponse(currentUser)
+                responseCreatedUser(id != null)
             }
         } catch (e: Exception) {
             if (Logger.DEBUG) Log.e(TAG, "save error: ${e.message}")
-            methodResponse(null)
+            responseCreatedUser(false)
         }
 
     }
